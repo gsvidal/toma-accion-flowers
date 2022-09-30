@@ -4,14 +4,26 @@
   box-sizing: border-box;
 }
 
+:root {
+  --soft-pink: #fff7f7;
+  --regular-pink: #ffbac4;
+  --strong-pink: #ff8888;
+}
+
 body {
   margin: 0;
   font-family: 'Hind', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--soft-pink);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

@@ -1,0 +1,26 @@
+.category-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+
+  .category-img-container {
+    overflow: hidden;
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+      transition: transform 0.5s linear;
+      &:hover {
+        transform: scale(1.2);
+        transition: transform 0.25s ease-in-out;
+      }
+    }
+  }
+}
+
+.category-body-container {
+  text-align: center;
+  margin: 10px 0;
+}

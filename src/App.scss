@@ -1,0 +1,10 @@
+.app-container {
+  max-width: 1100px;
+  margin: 20px;
+  @media (min-width: 620px) {
+    margin: 40px;
+  }
+  @media (min-width: 1180px) {
+    margin: 40px auto;
+  }
+}

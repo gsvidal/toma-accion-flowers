@@ -1,0 +1,27 @@
+.menu-navigation-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-navigation-items {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.menu-navigation-item {
+  margin: 0 15px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover,
+  a:hover {
+    color: var(--regular-pink);
+  }
+
+  &:active,
+  a:active {
+    color: var(--strong-pink);
+  }
+}
