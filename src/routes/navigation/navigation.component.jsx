@@ -20,7 +20,9 @@ export const Navigation = () => {
           <li className="menu-navigation-item">
             <Link to="/shop">Comprar</Link>
           </li>
-          <li className="menu-navigation-item">Iniciar Sesión</li>
+          <li className="menu-navigation-item">
+            <Link to="/sign-in">Iniciar Sesión</Link>
+          </li>
           <li className="menu-navigation-item">Regístrate</li>
         </ul>
       </nav>
