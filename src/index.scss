@@ -5,7 +5,8 @@
 }
 
 :root {
-  --soft-pink: #fff7f7;
+  --very-soft-pink: #fff7f7;
+  --soft-pink: #ffd6dc;
   --regular-pink: #ffbac4;
   --strong-pink: #ff8888;
 }
@@ -15,7 +16,7 @@ body {
   font-family: 'Hind', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--soft-pink);
+  background-color: var(--very-soft-pink);
 }
 
 code {

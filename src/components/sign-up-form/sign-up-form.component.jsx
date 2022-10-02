@@ -5,6 +5,7 @@ import {
 } from '../../utils/firebase/firebase.utils';
 import './sign-up-form.styles.scss';
 import { FormInput } from '../form-input/form-input.component';
+import { Button } from '../button/button.component';
 
 const defaultFormFields = {
   displayName: '',
@@ -55,8 +56,9 @@ export const SignUpForm = () => {
   };
 
   return (
-    <>
-      <h1>Ingresa tus datos para registrarte</h1>
+    <div className="sign-up-container">
+      <h2>Aún no tienes cuenta?</h2>
+      <span>Ingresa tus datos para registrarte</span>
       <form className="form" action="" onSubmit={handleSubmit}>
         <FormInput
           label="Nombre y Apellido"
@@ -95,9 +97,12 @@ export const SignUpForm = () => {
           onChange={handleChange}
         />
 
-        <button type="submit">Enviar</button>
+        <Button type="submit">Enviar</Button>
+        {/* <Button buttonType="google" type="submit">
+          <span className="google-icon"></span> Continuar con Google
+        </Button> */}
         {submitError && <p className="submit-error-message">{submitError}</p>}
       </form>
-    </>
+    </div>
   );
 };

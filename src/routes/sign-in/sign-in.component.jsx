@@ -3,6 +3,7 @@ import {
   createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase.utils';
 import { SignUpForm } from '../../components/sign-up-form/sign-up-form.component';
+import { Button } from '../../components/button/button.component';
 
 export const SignIn = () => {
   const logGoogleUser = async () => {
@@ -13,7 +14,10 @@ export const SignIn = () => {
   return (
     <>
       <h1>Sign In Page</h1>
-      <button onClick={logGoogleUser}>Sign In with google Popup</button>
+      <Button onClick={logGoogleUser} buttonType="google" type="submit">
+        <span className="google-icon"></span> Continuar con Google
+      </Button>
+      {/* <button onClick={logGoogleUser}>Sign In with google Popup</button> */}
       <SignUpForm />
     </>
   );
