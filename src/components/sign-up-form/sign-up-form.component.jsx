@@ -1,6 +1,10 @@
 import { useState } from 'react';
-import { createAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
+import {
+  createAuthUserWithEmailAndPassword,
+  createUserDocumentFromAuth,
+} from '../../utils/firebase/firebase.utils';
 import './sign-up-form.styles.scss';
+import { FormInput } from '../form-input/form-input.component';
 
 const defaultFormFields = {
   displayName: '',
@@ -24,37 +28,38 @@ export const SignUpForm = () => {
     }
 
     try {
-      const response = await createAuthUserWithEmailAndPassword(
+      const { user } = await createAuthUserWithEmailAndPassword(
         email,
         password
       );
-      console.log(response);
+
+      await createUserDocumentFromAuth(user, { displayName });
     } catch (error) {
       console.log('user creation encountered an error', error.message);
+
       // TODO: make a switch
-      if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
+      if (error.code === 'auth/email-already-in-use') {
         setSubmitErrorMessage('Este correo ya se encuentra registrado');
       }
-      if (
-        error.message ===
-        'Firebase: Password should be at least 6 characters (auth/weak-password).'
-      ) {
+      if (error.code === 'auth/weak-password') {
         setSubmitErrorMessage(
           'Las contraseñas deben contener al menos 6 caracteres'
         );
       }
     }
+    setFormFields(defaultFormFields);
   };
 
   const handleChange = (event) => {
     setFormFields({ ...formFields, [event.target.name]: event.target.value });
   };
+
   return (
     <>
       <h1>Ingresa tus datos para registrarte</h1>
-      <form action="" onSubmit={handleSubmit}>
-        <label htmlFor="displayName">Nombre y Apellido</label>
-        <input
+      <form className="form" action="" onSubmit={handleSubmit}>
+        <FormInput
+          label="Nombre y Apellido"
           type="text"
           required
           name="displayName"
@@ -62,8 +67,8 @@ export const SignUpForm = () => {
           value={displayName}
           onChange={handleChange}
         />
-        <label htmlFor="email">Correo Electrónico</label>
-        <input
+        <FormInput
+          label="Correo Electrónico"
           type="email"
           required
           name="email"
@@ -71,8 +76,8 @@ export const SignUpForm = () => {
           value={email}
           onChange={handleChange}
         />
-        <label htmlFor="password">Contraseña</label>
-        <input
+        <FormInput
+          label="Contraseña"
           type="password"
           required
           name="password"
@@ -80,8 +85,8 @@ export const SignUpForm = () => {
           value={password}
           onChange={handleChange}
         />
-        <label htmlFor="confirmPassword">Confirma Contraseña</label>
-        <input
+        <FormInput
+          label="Confirma Contraseña"
           type="password"
           required
           name="confirmPassword"
@@ -89,6 +94,7 @@ export const SignUpForm = () => {
           value={confirmPassword}
           onChange={handleChange}
         />
+
         <button type="submit">Enviar</button>
         {submitError && <p className="submit-error-message">{submitError}</p>}
       </form>
