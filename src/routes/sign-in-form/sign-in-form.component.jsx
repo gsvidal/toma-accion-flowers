@@ -1,26 +1,28 @@
 import { useState } from 'react';
 import {
   signInWithGooglePopup,
-  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
 } from '../../utils/firebase/firebase.utils';
 import { Button } from '../../components/button/button.component';
 import { FormInput } from '../../components/form-input/form-input.component';
 import './sign-in-form.styles.scss';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const defaultFormFields = {
   email: '',
   password: '',
 };
 
-export const signInWithGoogle = async () => {
-  const { user } = await signInWithGooglePopup();
-  await createUserDocumentFromAuth(user);
-};
-
 export const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const [submitError, setSubmitErrorMessage] = useState('');
+  const navigate = useNavigate();
+
+  const signInWithGoogle = async () => {
+    await signInWithGooglePopup();
+    navigate('/');
+  };
 
   const { email, password } = formFields;
 
@@ -29,15 +31,18 @@ export const SignInForm = () => {
     setSubmitErrorMessage('');
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-      console.log(response);
+      await signInAuthUserWithEmailAndPassword(email, password);
+
+      navigate('/');
       setFormFields(defaultFormFields);
     } catch (error) {
       if (error.code === 'auth/wrong-password')
         setSubmitErrorMessage('La contraseña no coincide, pruebas de nuevo?');
+      if (error.code === 'auth/user-not-found')
+        setSubmitErrorMessage(
+          'Lo sentimos, parece que el correo no es correcto o aún no tienes una cuenta con nosotros.'
+        );
+      console.log(error.code);
     }
   };
 
@@ -57,11 +62,13 @@ export const SignInForm = () => {
         <Button onClick={signInWithGoogle} buttonType="google">
           <span className="google-icon"></span> Continuar con Google
         </Button>
+
         <div className="auth-methods">
           <hr className="auth-methods__line" />
           <p className="auth-methods__o">ó</p>
           <hr className="auth-methods__line" />
         </div>
+
         <h3 className="sign-in-action">
           Inicia sesión con tu correo y contraseña
         </h3>
@@ -88,6 +95,12 @@ export const SignInForm = () => {
           <Button type="submit">Iniciar sesión</Button>
 
           {submitError && <p className="submit-error-message">{submitError}</p>}
+          {submitError ===
+            'Lo sentimos, parece que el correo no es correcto o aún no tienes una cuenta con nosotros.' && (
+            <Link to="/sign-up">
+              <Button>Regístrate</Button>
+            </Link>
+          )}
         </form>
       </div>
     </>

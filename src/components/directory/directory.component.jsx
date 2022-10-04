@@ -1,8 +1,7 @@
 import { CategoryItem } from '../category-item/category-item.component';
 import './directory.styles.scss';
 
-export const Directory = (props) => {
-  const { categories } = props;
+export const Directory = ({ categories }) => {
   return (
     <section className="categories-container">
       {categories.map((category) => (

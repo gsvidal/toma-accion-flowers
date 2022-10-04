@@ -11,6 +11,16 @@
 }
 
 .menu-navigation-item {
+  // height: 40px;
+  // display: inline-block;
+  // margin: 20px 0;
+}
+
+.menu-nav-user-container {
+  position: relative;
+}
+
+.menu-navigation-item {
   margin: 0 15px;
   font-weight: bold;
   cursor: pointer;
@@ -24,8 +34,31 @@
   a:active {
     color: var(--strong-pink);
   }
+
+  &--user {
+    position: relative;
+  }
 }
 
 .logo-image {
   vertical-align: middle;
+}
+
+.menu-user-list {
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  width: 120px;
+  padding: 10px;
+  list-style: none;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.823);
+  border-radius: 5px;
+}
+
+.menu-user-item {
+  margin: 5px 0;
+  &:hover {
+    color: var(--strong-pink);
+  }
 }
