@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import {
   signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword,
@@ -8,6 +8,7 @@ import { FormInput } from '../../components/form-input/form-input.component';
 import './sign-in-form.styles.scss';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../components/contexts/user-context';
 
 const defaultFormFields = {
   email: '',
@@ -17,10 +18,13 @@ const defaultFormFields = {
 export const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const [submitError, setSubmitErrorMessage] = useState('');
+
   const navigate = useNavigate();
 
+  const { setFirstName } = useContext(UserContext);
+
   const signInWithGoogle = async () => {
-    await signInWithGooglePopup();
+    const { user } = await signInWithGooglePopup();
     navigate('/');
   };
 
@@ -32,7 +36,6 @@ export const SignInForm = () => {
 
     try {
       await signInAuthUserWithEmailAndPassword(email, password);
-
       navigate('/');
       setFormFields(defaultFormFields);
     } catch (error) {
@@ -42,7 +45,6 @@ export const SignInForm = () => {
         setSubmitErrorMessage(
           'Lo sentimos, parece que el correo no es correcto o aún no tienes una cuenta con nosotros.'
         );
-      console.log(error.code);
     }
   };
 

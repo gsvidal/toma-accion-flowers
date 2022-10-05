@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
   signInWithGooglePopup,
+  updateUserProfile,
 } from '../../utils/firebase/firebase.utils';
 import './sign-up-form.styles.scss';
 import { FormInput } from '../form-input/form-input.component';
 import { Button } from '../button/button.component';
 import { Loader } from '../Loader/Loader.component';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { UserContext } from '../contexts/user-context';
 
 const defaultFormFields = {
   displayName: '',
@@ -25,9 +27,15 @@ export const SignUpForm = () => {
 
   const { displayName, email, password, confirmPassword } = formFields;
 
+  const { setFirstName } = useContext(UserContext);
+
+  const navigate = useNavigate();
+
   const signInWithGoogle = async () => {
-    await signInWithGooglePopup();
-    setShowSuccessCreation(true);
+    const response = await signInWithGooglePopup();
+    // console.log(response);
+    // setFirstName(response.user.displayName.split(' ')[0]);
+    navigate('/');
   };
 
   const handleSubmit = async (event) => {
@@ -44,13 +52,14 @@ export const SignUpForm = () => {
         email,
         password
       );
-      console.log(user);
+
       setShowLoader(false);
       setFormFields(defaultFormFields);
       setShowSuccessCreation(true);
-
-      localStorage.setItem('displayName', displayName);
-      console.log('display name is', displayName);
+      await updateUserProfile({
+        displayName,
+      });
+      setFirstName(displayName.split(' ')[0]);
 
       await createUserDocumentFromAuth(user, {
         displayName,

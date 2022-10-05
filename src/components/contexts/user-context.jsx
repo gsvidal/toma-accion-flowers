@@ -7,14 +7,19 @@ import {
 export const UserContext = createContext({
   currentUser: null,
   setCurrentUser: () => null,
+  firstName: null,
+  setFirstName: () => null,
 });
 
 export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [firstName, setFirstName] = useState(null);
 
   const value = {
     currentUser,
     setCurrentUser,
+    firstName,
+    setFirstName,
   };
 
   useEffect(() => {
@@ -23,8 +28,8 @@ export const UserProvider = ({ children }) => {
         createUserDocumentFromAuth(user);
       }
       setCurrentUser(user);
+      setFirstName(user?.displayName.split(' ')[0]);
     });
-
     return unsubscribe;
   }, []);
 

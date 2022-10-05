@@ -3,13 +3,13 @@ import { initializeApp } from 'firebase/app';
 // import { getAnalytics } from 'firebase/analytics';
 import {
   getAuth,
-  // signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  updateProfile,
 } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
@@ -88,3 +88,7 @@ export const signOutUser = async () => {
 
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
+
+export const updateUserProfile = async (info) => {
+  return await updateProfile(auth.currentUser, info);
+};

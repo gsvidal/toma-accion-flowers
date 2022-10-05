@@ -1,25 +1,16 @@
-import { useState, useContext, useEffect } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 import './navigation.styles.scss';
 import { UserContext } from '../../components/contexts/user-context';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
 export const Navigation = () => {
   const [showUserMenu, setShowUserMenu] = useState(false);
-  const [firstName, setFirstName] = useState(null);
-  const { currentUser } = useContext(UserContext);
-  console.log(currentUser);
 
-  useEffect(() => {
-    if (currentUser?.displayName) {
-      // console.log(currentUser?.displayName);
-      // console.log('google');
-      setFirstName(currentUser?.displayName.split(' ')[0]);
-    } else {
-      // console.log('email, y password');
-      setFirstName(localStorage.getItem('displayName').split(' ')[0]);
-    }
-  }, [currentUser]);
+  const { currentUser, setCurrentUser, firstName, setFirstName } =
+    useContext(UserContext);
+
+  const navigate = useNavigate();
 
   const handleClickUserMenu = () => {
     setShowUserMenu(!showUserMenu);
@@ -28,9 +19,10 @@ export const Navigation = () => {
   const handleSignOut = () => {
     signOutUser();
     setShowUserMenu(false);
+    setFirstName(null);
+    setCurrentUser(null);
+    navigate('/');
   };
-
-  console.log(showUserMenu);
 
   return (
     <>
@@ -63,7 +55,7 @@ export const Navigation = () => {
                   <li className="menu-user-item">Mis pedidos</li>
                   <li className="menu-user-item">Mi cuenta</li>
                   <li className="menu-user-item" onClick={handleSignOut}>
-                    <Link to="/">Cerrar sesion</Link>
+                    Cerrar sesion
                   </li>
                 </ul>
               )}
