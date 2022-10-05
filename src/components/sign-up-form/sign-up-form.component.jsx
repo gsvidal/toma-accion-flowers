@@ -8,7 +8,7 @@ import {
 import './sign-up-form.styles.scss';
 import { FormInput } from '../form-input/form-input.component';
 import { Button } from '../button/button.component';
-import { Loader } from '../Loader/Loader.component';
+import { Loader } from '../loader/loader.component';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../contexts/user-context';
 
@@ -32,9 +32,7 @@ export const SignUpForm = () => {
   const navigate = useNavigate();
 
   const signInWithGoogle = async () => {
-    const response = await signInWithGooglePopup();
-    // console.log(response);
-    // setFirstName(response.user.displayName.split(' ')[0]);
+    await signInWithGooglePopup();
     navigate('/');
   };
 

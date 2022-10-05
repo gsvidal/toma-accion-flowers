@@ -15,17 +15,17 @@ export function Home() {
     {
       id: 3,
       title: 'Arreglos',
-      imgUrl: 'assets/images/categories-tulipanes.png',
+      imgUrl: 'assets/images/categories-arreglos.png',
     },
     {
       id: 4,
       title: 'Orquídeas',
-      imgUrl: 'assets/images/categories-tulipanes.png',
+      imgUrl: 'assets/images/categories-orquideas.png',
     },
     {
       id: 5,
       title: 'Plantas',
-      imgUrl: 'assets/images/categories-tulipanes.png',
+      imgUrl: 'assets/images/categories-plantas.png',
     },
   ];
   return <Directory categories={categories} />;

@@ -1,4 +1,4 @@
-import './Loader.styles.scss';
+import './loader.styles.scss';
 
 export const Loader = ({ children }) => {
   return (

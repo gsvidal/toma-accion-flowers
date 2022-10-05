@@ -37,10 +37,10 @@ export const Navigation = () => {
         </Link>
         <ul className="menu-navigation-items">
           <li className="menu-navigation-item">
-            <Link to="/">Home</Link>
+            <Link to="/">Categorías</Link>
           </li>
           <li className="menu-navigation-item">
-            <Link to="/shop">Comprar</Link>
+            <Link to="/shop">Productos</Link>
           </li>
           {currentUser ? (
             <div className="menu-nav-user-container">

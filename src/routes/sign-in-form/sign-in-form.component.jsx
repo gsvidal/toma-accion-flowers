@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import {
   signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword,
@@ -8,7 +8,6 @@ import { FormInput } from '../../components/form-input/form-input.component';
 import './sign-in-form.styles.scss';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../../components/contexts/user-context';
 
 const defaultFormFields = {
   email: '',
@@ -21,10 +20,8 @@ export const SignInForm = () => {
 
   const navigate = useNavigate();
 
-  const { setFirstName } = useContext(UserContext);
-
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
+    await signInWithGooglePopup();
     navigate('/');
   };
 

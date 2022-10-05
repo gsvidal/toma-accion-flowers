@@ -6,8 +6,13 @@
   border: none;
   border-radius: 5px;
   background-color: var(--soft-pink);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.6s ease;
   &:hover {
     background-color: var(--regular-pink);
+    transform: scale(1.1);
+    transition: transform 1.2s ease;
   }
   &:active {
     background-color: var(--strong-pink);
@@ -20,6 +25,20 @@
     }
     &:active {
       background-color: rgb(214, 214, 214);
+    }
+  }
+
+  &--add-to-cart {
+    width: 155px;
+    height: 45px;
+    padding: 14px 28px;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.84);
+    position: absolute;
+    top: calc((100% - 45px) / 2);
+    left: calc((100% - 155px) / 2);
+    &:hover {
+      background-color: rgba(255, 255, 255);
     }
   }
 }

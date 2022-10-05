@@ -9,7 +9,6 @@ export const CategoryItem = (props) => {
       </div>
       <div className="category-body-container">
         <h2>{title}</h2>
-        <p>Quiero esto!</p>
       </div>
     </article>
   );

@@ -1,0 +1,16 @@
+.product-container {
+}
+
+.product-image-container {
+  position: relative;
+}
+
+.product-image {
+  width: 100%;
+}
+
+.product-tag {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
