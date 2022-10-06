@@ -17,13 +17,13 @@ export const CartDropdown = () => {
         className="cart-dropdown-close-icon"
         onClick={handleCloseDropdown}
       ></span>
-      <div className="cart-dropdown-body">
+      <div className={`${cartItems?.length > 0 && 'cart-dropdown-body'} `}>
         {cartItems?.length > 0 ? (
           cartItems.map((cartItem) => (
             <CartItem key={cartItem.id} cartItem={cartItem} />
           ))
         ) : (
-          <p>La canasta aún está vacía!</p>
+          <p className="cart-dropdown-empty-msg">La canasta aún está vacía!</p>
         )}
       </div>
       <Button buttonType="checkout">Procesar Compra</Button>

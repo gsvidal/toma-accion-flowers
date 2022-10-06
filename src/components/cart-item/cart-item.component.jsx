@@ -8,9 +8,9 @@ export const CartItem = ({ cartItem }) => {
       <div className="cart-item-description">
         <p className="cart-item-name">{name}</p>
         <div>
-          <span className="cart-item-quantity">{quantity}</span>
-          <span className="cart-item-multiplier">x</span>
-          <span>{`S/.${price}`}</span>
+          <span className="cart-item-quantity">
+            {quantity} x {`S/.${price}`}
+          </span>
         </div>
       </div>
     </div>

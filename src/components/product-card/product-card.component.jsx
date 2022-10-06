@@ -7,8 +7,6 @@ export const ProductCard = ({ product }) => {
   const { name, imageUrl, price } = product;
   const { cartItems, addItemToCart } = useContext(CartContext);
   const addToCart = (product) => {
-    // console.log(cartItems);
-    // console.log(product);
     addItemToCart(product);
   };
   return (

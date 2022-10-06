@@ -28,4 +28,14 @@
 }
 
 .cart-dropdown-body {
+  overflow: auto;
+  padding-right: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.cart-dropdown-empty-msg {
+  // overflow: none;
+  position: relative;
+  top: calc(145px);
 }
