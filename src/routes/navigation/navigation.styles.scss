@@ -14,12 +14,6 @@
   list-style: none;
 }
 
-.menu-navigation-item {
-  // height: 40px;
-  // display: inline-block;
-  // margin: 20px 0;
-}
-
 .menu-nav-user-container {
   position: relative;
 }
@@ -41,6 +35,11 @@
 
   &--user {
     position: relative;
+  }
+
+  &.cart-icon-container:hover,
+  &.cart-icon-container:active {
+    color: black;
   }
 }
 

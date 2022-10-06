@@ -71,7 +71,7 @@ export const Navigation = () => {
               </li>
             </>
           )}
-          <li className="menu-navigation-item">
+          <li className="menu-navigation-item cart-icon-container">
             <CartIcon />
           </li>
         </ul>

@@ -1,15 +1,15 @@
 .products-container {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 25px;
+  gap: 35px;
   margin-top: 30px;
   @media (min-width: 680px) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 45px;
   }
   @media (min-width: 1380px) {
     grid-template-columns: repeat(3, 1fr);
-    gap: 35px;
+    gap: 55px;
     margin-top: 60px;
   }
 }
