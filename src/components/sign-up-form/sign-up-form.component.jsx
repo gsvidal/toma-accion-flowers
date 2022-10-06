@@ -10,7 +10,7 @@ import { FormInput } from '../form-input/form-input.component';
 import { Button } from '../button/button.component';
 import { Loader } from '../loader/loader.component';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserContext } from '../contexts/user-context';
+import { UserContext } from '../contexts/user.context';
 
 const defaultFormFields = {
   displayName: '',

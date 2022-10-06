@@ -8,11 +8,9 @@
   background-color: var(--soft-pink);
   text-align: center;
   cursor: pointer;
-  transition: transform 0.6s ease;
+
   &:hover {
     background-color: var(--regular-pink);
-    transform: scale(1.1);
-    transition: transform 1.2s ease;
   }
   &:active {
     background-color: var(--strong-pink);
@@ -37,9 +35,15 @@
     position: absolute;
     top: calc((100% - 45px) / 2);
     left: calc((100% - 155px) / 2);
+    transition: transform 0.6s ease;
     &:hover {
       background-color: rgba(255, 255, 255);
+      transform: scale(1.1);
+      transition: transform 1.2s ease;
     }
+  }
+
+  &--checkout {
   }
 }
 

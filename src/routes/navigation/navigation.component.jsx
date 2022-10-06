@@ -1,8 +1,9 @@
 import { useState, useContext } from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 import './navigation.styles.scss';
-import { UserContext } from '../../components/contexts/user-context';
+import { UserContext } from '../../components/contexts/user.context';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
+import { CartIcon } from '../../components/cart-icon/cart-icon.components';
 
 export const Navigation = () => {
   const [showUserMenu, setShowUserMenu] = useState(false);
@@ -62,7 +63,7 @@ export const Navigation = () => {
             </div>
           ) : (
             <>
-              <li className="menu-navigation-item" on>
+              <li className="menu-navigation-item">
                 <Link to="/sign-in">Iniciar Sesión</Link>
               </li>
               <li className="menu-navigation-item">
@@ -70,6 +71,9 @@ export const Navigation = () => {
               </li>
             </>
           )}
+          <li className="menu-navigation-item">
+            <CartIcon />
+          </li>
         </ul>
       </nav>
       <Outlet />

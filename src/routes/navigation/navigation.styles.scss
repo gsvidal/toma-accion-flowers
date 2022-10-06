@@ -2,11 +2,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (min-width: 1380px) {
+    margin-top: 50px;
+  }
 }
 
 .menu-navigation-items {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   list-style: none;
 }
 
@@ -42,6 +46,11 @@
 
 .logo-image {
   vertical-align: middle;
+  @media (min-width: 1380px) {
+    position: absolute;
+    top: 25px;
+    left: calc(50vw - 50px);
+  }
 }
 
 .menu-user-list {
