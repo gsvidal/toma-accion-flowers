@@ -89,6 +89,7 @@ export const SignInForm = () => {
             id="password"
             value={password}
             onChange={handleChange}
+            autocomplete="on"
           />
 
           <Button type="submit">Iniciar sesión</Button>

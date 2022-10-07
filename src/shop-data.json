@@ -1,44 +1,44 @@
 [
   {
-    "id": 69,
+    "id": 1,
     "name": "Rosas Rojas",
-    "imageUrl": "https://i.postimg.cc/X7bdHMdv/rosas-rojas.png",
-    "price": 12
+    "imageUrl": "https://i.postimg.cc/xC83vDYz/rosas-rojas.png",
+    "price": 12,
+    "category": "roses"
   },
   {
     "id": 2,
     "name": "Rosas Rosadas",
-    "imageUrl": "https://i.postimg.cc/zDWTFDLM/rosas-rosas.png",
-    "price": 13
+    "imageUrl": "https://i.postimg.cc/0NcCK2gv/rosas-rosas.png",
+    "price": 15,
+    "category": "roses"
   },
   {
     "id": 3,
     "name": "Rosas Violetas",
-    "imageUrl": "https://i.postimg.cc/dtjdgWjj/rosas-violetas.png",
-    "price": 18
+    "imageUrl": "https://i.postimg.cc/YSp3SLs8/rosas-violetas.png",
+    "price": 18,
+    "category": "roses"
   },
   {
     "id": 4,
-    "name": "Rosas Violetas",
-    "imageUrl": "https://i.postimg.cc/dtjdgWjj/rosas-violetas.png",
-    "price": 18
+    "name": "Rosas Mix",
+    "imageUrl": "https://i.postimg.cc/zXK114W5/rosas-blanca-rosa-roja.png",
+    "price": 20,
+    "category": "roses"
   },
   {
     "id": 5,
-    "name": "Rosas Violetas",
-    "imageUrl": "https://i.postimg.cc/dtjdgWjj/rosas-violetas.png",
-    "price": 18
+    "name": "Rosas Miel",
+    "imageUrl": "https://i.postimg.cc/vZyw8XLn/rosas-miel.png",
+    "price": 21,
+    "category": "roses"
   },
   {
     "id": 6,
-    "name": "Rosas Violetas",
-    "imageUrl": "https://i.postimg.cc/dtjdgWjj/rosas-violetas.png",
-    "price": 18
-  },
-  {
-    "id": 7,
-    "name": "Rosas Violetas",
-    "imageUrl": "https://i.postimg.cc/dtjdgWjj/rosas-violetas.png",
-    "price": 18
+    "name": "Orquidea morada",
+    "imageUrl": "https://i.postimg.cc/Qdg2P57q/orquideas-morada.png",
+    "price": 50,
+    "category": "orquids"
   }
 ]

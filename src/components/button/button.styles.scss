@@ -35,11 +35,14 @@
     position: absolute;
     top: calc((100% - 45px) / 2);
     left: calc((100% - 155px) / 2);
-    transition: transform 0.6s ease;
+    // transition: transform 0.1s ease;
     &:hover {
       background-color: rgba(255, 255, 255);
-      transform: scale(1.1);
-      transition: transform 1.2s ease;
+      // transform: scale(1.1);
+      // transition: transform 0.25s ease;
+    }
+    &:active {
+      background-color: rgb(169, 169, 169);
     }
   }
 

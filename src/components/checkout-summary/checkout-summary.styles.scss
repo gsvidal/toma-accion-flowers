@@ -1,0 +1,28 @@
+.checkout-summary {
+  padding: 30px;
+  border: 1px solid var(--regular-pink);
+  border-radius: 9px;
+  background-color: white;
+}
+
+.checkout-summary-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.checkout-subtotal {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.checkout-delivery-select-container {
+  font-weight: 500;
+  margin: 20px 0;
+}
+
+.checkout-total {
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--strong-pink);
+}

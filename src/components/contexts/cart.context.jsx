@@ -1,4 +1,5 @@
 import { useState, createContext, useEffect } from 'react';
+import DELIVERY from '../../delivery-options-data.json';
 
 const addCartItem = (cartItems, productToAdd) => {
   // Search for products already existing in cart, to just add the amount and no create another cartItem
@@ -28,6 +29,13 @@ const updateItemQuantity = (cartItems, idToChange, value) => {
   return newCartItems;
 };
 
+const deleteCheckoutItem = (cartItems, index) => {
+  const updateCartItemsAfterDeleteItem = cartItems.filter(
+    (cartItem) => cartItem.id !== index
+  );
+  return updateCartItemsAfterDeleteItem;
+};
+
 export const CartContext = createContext({
   isCartOpen: false,
   setIsCartOpen: () => {},
@@ -35,22 +43,30 @@ export const CartContext = createContext({
   addItemToCart: () => {},
   cartCount: 0,
   setCartCounter: () => {},
-  cartTotal: 0,
-  setCartTotal: () => {},
+  cartSubtotal: 0,
+  setCartSubtotal: () => {},
   changeItemQuantity: () => {},
+  delivery: null,
+  deleteItemFromCheckout: () => {},
 });
 
 export const CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
-  const [cartTotal, setCartTotal] = useState(0);
+  const [cartSubtotal, setCartSubtotal] = useState(0);
+  const [delivery, setDelivery] = useState(DELIVERY);
 
   const addItemToCart = (productToAdd) => {
     setCartItems(addCartItem(cartItems, productToAdd));
   };
+
   const changeItemQuantity = (index, value) => {
     setCartItems(updateItemQuantity(cartItems, index, value));
+  };
+
+  const deleteItemFromCheckout = (index) => {
+    setCartItems(deleteCheckoutItem(cartItems, index));
   };
 
   useEffect(() => {
@@ -66,7 +82,7 @@ export const CartProvider = ({ children }) => {
       (acum, cartItem) => acum + cartItem.quantity * cartItem.price,
       0
     );
-    setCartTotal(total);
+    setCartSubtotal(total);
   }, [cartItems]);
 
   const value = {
@@ -75,9 +91,11 @@ export const CartProvider = ({ children }) => {
     cartItems,
     addItemToCart,
     cartCount,
-    cartTotal,
-    setCartTotal,
+    cartSubtotal,
+    setCartSubtotal,
     changeItemQuantity,
+    delivery,
+    deleteItemFromCheckout,
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
