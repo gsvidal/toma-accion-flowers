@@ -4,6 +4,7 @@ import { SignInForm } from './routes/sign-in-form/sign-in-form.component';
 import { Shop } from './routes/shop/shop.component';
 import { SignUpForm } from './components/sign-up-form/sign-up-form.component';
 import { Navigation } from './routes/navigation/navigation.component';
+import { Checkout } from './components/checkout/checkout.component';
 import './App.scss';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="shop" element={<Shop />} />
           <Route path="sign-in" element={<SignInForm />} />
           <Route path="sign-up" element={<SignUpForm />} />
+          <Route path="checkout" element={<Checkout />} />
         </Route>
       </Routes>
     </div>

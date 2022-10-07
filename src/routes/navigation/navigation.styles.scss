@@ -25,12 +25,12 @@
   cursor: pointer;
 
   &:hover,
-  a:hover {
+  & > a:hover {
     color: var(--regular-pink);
   }
 
   &:active,
-  a:active {
+  & > a:active {
     color: var(--strong-pink);
   }
 
