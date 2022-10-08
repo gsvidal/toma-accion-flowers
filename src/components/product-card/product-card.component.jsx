@@ -5,7 +5,7 @@ import { CartContext } from '../contexts/cart.context';
 
 export const ProductCard = ({ product }) => {
   const { name, imageUrl, price } = product;
-  const { cartItems, addItemToCart } = useContext(CartContext);
+  const { addItemToCart } = useContext(CartContext);
   const addToCart = (product) => {
     addItemToCart(product);
   };

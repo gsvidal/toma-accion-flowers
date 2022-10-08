@@ -57,6 +57,8 @@ export const CartProvider = ({ children }) => {
   const [cartSubtotal, setCartSubtotal] = useState(0);
   const [delivery, setDelivery] = useState(DELIVERY);
 
+  console.log(setDelivery);
+
   const addItemToCart = (productToAdd) => {
     setCartItems(addCartItem(cartItems, productToAdd));
   };

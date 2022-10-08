@@ -1,4 +1,4 @@
-import './loader.styles.scss';
+import './loading-spinner.styles.scss';
 
 export const Loader = ({ children }) => {
   return (

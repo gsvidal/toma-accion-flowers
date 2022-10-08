@@ -1,6 +1,7 @@
 export const SHOP_DATA = [
   {
     title: 'Rosas',
+    imgUrl: 'https://i.postimg.cc/GpvCs7cr/categories-rosas.png',
     items: [
       {
         id: 'ros-1',
@@ -36,6 +37,7 @@ export const SHOP_DATA = [
   },
   {
     title: 'Orquideas',
+    imgUrl: 'https://i.postimg.cc/hjrR2Xz5/categories-orquideas.png',
     items: [
       {
         id: 'orq-1',

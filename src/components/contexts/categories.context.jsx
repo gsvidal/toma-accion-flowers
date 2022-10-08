@@ -7,11 +7,11 @@ import {
 } from '../../utils/firebase/firebase.utils.js';
 
 export const CategoriesContext = createContext({
-  categories: {},
+  categoriesMap: {},
 });
 
 export const CategoriesProvider = ({ children }) => {
-  const [categories, setCategories] = useState({});
+  const [categoriesMap, setCategoriesMap] = useState({});
 
   // useEffect(() => {
   //   addCollectionAndDocuments('categories', SHOP_DATA);
@@ -19,12 +19,12 @@ export const CategoriesProvider = ({ children }) => {
   useEffect(() => {
     const getCategoriesMap = async () => {
       const categoryMap = await getCategoriesAndDocuments();
-      setCategories(categoryMap);
+      setCategoriesMap(categoryMap);
     };
     getCategoriesMap();
   }, []);
 
-  const value = { categories };
+  const value = { categoriesMap };
 
   return (
     <CategoriesContext.Provider value={value}>
