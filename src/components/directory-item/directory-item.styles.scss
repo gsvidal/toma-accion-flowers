@@ -1,11 +1,11 @@
-.category-container {
+.directory-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
   cursor: pointer;
 
-  .category-img-container {
+  .directory-img-container {
     height: 190px;
     overflow: hidden;
     img {
@@ -22,7 +22,7 @@
   }
 }
 
-.category-body-container {
+.directory-body-container {
   text-align: center;
   margin: 10px 0;
 }

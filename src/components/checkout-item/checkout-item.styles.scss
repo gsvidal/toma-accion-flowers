@@ -36,8 +36,7 @@
   width: 30px;
   height: 30px;
   margin-right: 20px;
-  background: url('../../../public/assets/icons/delete-icon.svg') center/cover
-    no-repeat;
+  background: url('../../assets/icons/delete-icon.svg') center/cover no-repeat;
   cursor: pointer;
   &:hover {
     filter: invert(14%) sepia(74%) saturate(7240%) hue-rotate(1deg)

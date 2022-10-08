@@ -9,8 +9,7 @@ $cart-counter-size: 16px;
   display: inline-block;
   width: $cart-icon-size;
   height: $cart-icon-size;
-  background: url('../../../public/assets/icons/cart-icon.svg') center/cover
-    no-repeat;
+  background: url('../../assets/icons/cart-icon.svg') center/cover no-repeat;
 }
 
 .cart-icon-counter {

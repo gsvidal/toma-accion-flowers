@@ -31,9 +31,9 @@ export const Navigation = () => {
         <Link to="/">
           <img
             className="logo-image"
-            src="assets/images/toma-accion-flowers-logo.png"
+            src="https://i.postimg.cc/dVZ5vz5w/toma-accion-flowers-logo.png"
             width="100"
-            alt="from the logo"
+            alt="Logo de Toma Accion"
           />
         </Link>
         <ul className="menu-navigation-items">

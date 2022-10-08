@@ -27,8 +27,8 @@
   display: inline-block;
   width: 400px;
   height: 400px;
-  background: url('../../../public/assets/images/loading-spinner.svg')
-    center/cover no-repeat;
+  background: url('../../assets/images/loading-spinner.svg') center/cover
+    no-repeat;
   animation: spin infinite 2.5s linear;
   opacity: 0.75;
 }
