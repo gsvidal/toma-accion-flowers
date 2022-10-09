@@ -22,7 +22,7 @@ export const CheckoutSummary = () => {
       }
     };
     handleDeliveryClick();
-  }, [districtValue]);
+  }, [districtValue, delivery]);
 
   return (
     <div className="checkout-summary">

@@ -8,7 +8,7 @@ import {
 import './sign-up-form.styles.scss';
 import { FormInput } from '../form-input/form-input.component';
 import { Button } from '../button/button.component';
-import { Loader } from '../loader/loader.component';
+import { Loader } from '../loading-spinner/loading-spinner.component';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../contexts/user.context';
 

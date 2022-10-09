@@ -28,7 +28,7 @@ export const UserProvider = ({ children }) => {
         createUserDocumentFromAuth(user);
       }
       setCurrentUser(user);
-      setFirstName(user?.displayName.split(' ')[0]);
+      setFirstName(user?.displayName?.split(' ')[0]);
     });
     return unsubscribe;
   }, []);
