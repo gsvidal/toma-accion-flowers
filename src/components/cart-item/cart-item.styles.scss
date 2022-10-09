@@ -1,0 +1,30 @@
+.cart-item-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 180px;
+  margin: 15px 0;
+  font-weight: 300;
+}
+
+.cart-item-image {
+  margin-right: 15px;
+}
+
+.cart-item-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-name {
+}
+
+.cart-item-quantity {
+  display: inline-block;
+}
+
+.cart-item-multiplier {
+  display: inline-block;
+  margin: 0 4px;
+  font-weight: 600;
+}

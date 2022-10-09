@@ -1,48 +1,25 @@
-import './categories.styles.scss';
+import { Routes, Route } from 'react-router-dom';
+import { Home } from './routes/home/home.component';
+import { SignInForm } from './routes/sign-in-form/sign-in-form.component';
+import { Shop } from './routes/shop/shop.component';
+import { SignUpForm } from './components/sign-up-form/sign-up-form.component';
+import { Navigation } from './routes/navigation/navigation.component';
+import { Checkout } from './components/checkout/checkout.component';
+import './App.scss';
 
 function App() {
-  const categories = [
-    {
-      id: 1,
-      title: 'Rosas',
-      imgUrl: 'assets/images/categories-rosas.png',
-    },
-    {
-      id: 2,
-      title: 'Tulipanes',
-      imgUrl: 'assets/images/categories-tulipanes.png',
-    },
-    {
-      id: 3,
-      title: 'Arreglos',
-      imgUrl: 'assets/images/categories-tulipanes.png',
-    },
-    {
-      id: 4,
-      title: 'Orquídeas',
-      imgUrl: 'assets/images/categories-tulipanes.png',
-    },
-    {
-      id: 5,
-      title: 'Plantas',
-      imgUrl: 'assets/images/categories-tulipanes.png',
-    },
-  ];
-
   return (
-    <>
-      <section className="categories-container">
-        {categories.map((category) => (
-          <article key={category.id} className="category-container">
-            <img src={category.imgUrl} alt={category.title} />
-            <div className="category-body-container">
-              <h2>{category.title}</h2>
-              <p>Quiero esto!</p>
-            </div>
-          </article>
-        ))}
-      </section>
-    </>
+    <div className="app-container">
+      <Routes>
+        <Route path="/" element={<Navigation />}>
+          <Route index element={<Home />} />
+          <Route path="shop/*" element={<Shop />} />
+          <Route path="sign-in" element={<SignInForm />} />
+          <Route path="sign-up" element={<SignUpForm />} />
+          <Route path="checkout" element={<Checkout />} />
+        </Route>
+      </Routes>
+    </div>
   );
 }
 

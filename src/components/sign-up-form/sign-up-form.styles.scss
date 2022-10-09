@@ -1,0 +1,21 @@
+.form {
+  width: 500px;
+}
+
+.submit-error-message {
+  display: inline-block;
+  padding: 8px 16px;
+  color: red;
+  border: 1px solid rgb(255, 131, 131);
+  border-radius: 5px;
+}
+
+.sign-in-subtitle {
+  margin-top: 30px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.success-message {
+  margin-top: 60px;
+}
