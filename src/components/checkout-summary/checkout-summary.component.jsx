@@ -1,11 +1,12 @@
 import './checkout-summary.styles.scss';
 import { useState, useContext, useEffect } from 'react';
 import { CartContext } from '../contexts/cart.context';
+import { DELIVERY_DISTRICTS } from '../../delivery-options-data';
 
 export const CheckoutSummary = () => {
   const [districtValue, setDistrictValue] = useState('default');
   const [districtFee, setDistrictFee] = useState('');
-  const { cartSubtotal, delivery } = useContext(CartContext);
+  const { cartSubtotal } = useContext(CartContext);
 
   const handleDeliveryChange = (event) => {
     setDistrictValue(event.target.value);
@@ -13,16 +14,16 @@ export const CheckoutSummary = () => {
 
   useEffect(() => {
     const handleDeliveryClick = () => {
-      const districtIndex = delivery.findIndex(
+      const districtIndex = DELIVERY_DISTRICTS.findIndex(
         (option) => option.district === districtValue
       );
 
       if (districtIndex > -1) {
-        setDistrictFee(delivery[districtIndex].fee);
+        setDistrictFee(DELIVERY_DISTRICTS[districtIndex].fee);
       }
     };
     handleDeliveryClick();
-  }, [districtValue, delivery]);
+  }, [districtValue]);
 
   return (
     <div className="checkout-summary">
@@ -41,7 +42,7 @@ export const CheckoutSummary = () => {
           onChange={handleDeliveryChange}
         >
           <option value="default">-- Selecciona --</option>
-          {delivery.map(({ district }) => (
+          {DELIVERY_DISTRICTS.map(({ district }) => (
             <option key={district} value={district}>
               {district}
             </option>
