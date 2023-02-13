@@ -2,6 +2,8 @@
 A Fullstack application where you can select some type of flowers, go to the checkout and change their quantities or delete them.
 The user can also sign up or/and sign in with persistent data with local Storage and using Firebase.
 
+### [Check out the deployed app!](https://charming-dusk-1de24b.netlify.app/)
+
 <a href="https://charming-dusk-1de24b.netlify.app/">
   <img src="https://i.postimg.cc/kXLCTcrs/toma-accion-flowers.gif" width="800">
 </a> 
