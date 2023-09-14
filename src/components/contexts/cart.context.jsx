@@ -47,6 +47,7 @@ export const CartContext = createContext({
   changeItemQuantity: () => {},
   delivery: null,
   deleteItemFromCheckout: () => {},
+  setCartItems: () => {}
 });
 
 export const CartProvider = ({ children }) => {
@@ -101,6 +102,7 @@ export const CartProvider = ({ children }) => {
     setCartSubtotal,
     changeItemQuantity,
     deleteItemFromCheckout,
+    setCartItems
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

@@ -1,12 +1,14 @@
-import { useState, useContext } from 'react';
-import { Outlet, Link, useNavigate } from 'react-router-dom';
-import './navigation.styles.scss';
-import { UserContext } from '../../components/contexts/user.context';
-import { signOutUser } from '../../utils/firebase/firebase.utils';
-import { CartIcon } from '../../components/cart-icon/cart-icon.components';
+import { useState, useContext, useEffect } from "react";
+import { Outlet, Link, useNavigate } from "react-router-dom";
+import "./navigation.styles.scss";
+import { UserContext } from "../../components/contexts/user.context";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
+import { CartIcon } from "../../components/cart-icon/cart-icon.components";
+import { CartContext } from "../../components/contexts/cart.context";
 
 export const Navigation = () => {
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const { setCartItems } = useContext(CartContext);
 
   const { currentUser, setCurrentUser, firstName, setFirstName } =
     useContext(UserContext);
@@ -22,8 +24,15 @@ export const Navigation = () => {
     setShowUserMenu(false);
     setFirstName(null);
     setCurrentUser(null);
-    navigate('/');
+    navigate("/");
   };
+
+  useEffect(() => {
+    if (!currentUser) {
+      localStorage.clear();
+      setCartItems([]);
+    }
+  }, [currentUser]);
 
   return (
     <>
