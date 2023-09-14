@@ -1,5 +1,4 @@
 import { useState, createContext, useEffect } from 'react';
-import DELIVERY from '../../delivery-options-data.json';
 
 const addCartItem = (cartItems, productToAdd) => {
   // Search for products already existing in cart, to just add the amount and no create another cartItem
@@ -52,10 +51,13 @@ export const CartContext = createContext({
 
 export const CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
+  let initialCartItems = JSON.parse(localStorage.getItem('cart_items'));
+  if (!initialCartItems) {
+    initialCartItems = [];
+  }
+  const [cartItems, setCartItems] = useState(initialCartItems);
   const [cartCount, setCartCount] = useState(0);
   const [cartSubtotal, setCartSubtotal] = useState(0);
-  const [delivery, setDelivery] = useState(DELIVERY);
 
   const addItemToCart = (productToAdd) => {
     setCartItems(addCartItem(cartItems, productToAdd));
@@ -68,6 +70,10 @@ export const CartProvider = ({ children }) => {
   const deleteItemFromCheckout = (index) => {
     setCartItems(deleteCheckoutItem(cartItems, index));
   };
+
+  useEffect(() => {
+    localStorage.setItem('cart_items', JSON.stringify(cartItems));
+  }, [cartItems]);
 
   useEffect(() => {
     const counter = cartItems.reduce(
@@ -94,7 +100,6 @@ export const CartProvider = ({ children }) => {
     cartSubtotal,
     setCartSubtotal,
     changeItemQuantity,
-    delivery,
     deleteItemFromCheckout,
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
